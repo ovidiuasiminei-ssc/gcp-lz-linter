@@ -30,4 +30,5 @@ jobs:
           VALIDATE_PYTHON_BLACK: true
           VALIDATE_YAML: true
           VALIDATE_BASH: true
+          FILTER_REGEX_EXCLUDE: .*test/.*
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
