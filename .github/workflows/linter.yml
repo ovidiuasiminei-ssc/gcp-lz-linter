@@ -31,4 +31,5 @@ jobs:
           VALIDATE_YAML: true
           VALIDATE_BASH: true
           FILTER_REGEX_EXCLUDE: .*test/.*
+          SUPER_LINTER_EXCLUDE: "**/*.sh, **/*.txt"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
