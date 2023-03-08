@@ -33,7 +33,7 @@ rules:
   document-end: disable
   document-start:
     level: warning
-    present: true
+    present: false
   empty-lines:
     level: warning
     max: 2
