@@ -1,0 +1,12 @@
+apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+kind: Folder
+metadata:
+  name: audit-and-security.audit
+  annotations:
+    internal.kpt.dev/upstream-identifier: blueprints.cloud.google.com|ResourceHierarchy|config-control|landing-zone-hierarchy
+    cnrm.cloud.google.com/blueprint: 'kpt-fn'
+  namespace: config-control
+spec:
+  displayName: Audit
+  folderRef:
+    name: audit-and-security
