@@ -30,6 +30,7 @@ jobs:
           VALIDATE_PYTHON_BLACK: true
           VALIDATE_YAML: true
           VALIDATE_BASH: true
+          VALIDATE_MARKDOWN: true 
           FILTER_REGEX_EXCLUDE: .*test/.*
           SUPER_LINTER_EXCLUDE: "**/*.sh, **/*.txt"
           #DISABLE_ERRORS: true
