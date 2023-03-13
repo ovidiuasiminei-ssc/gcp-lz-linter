@@ -23,7 +23,7 @@ jobs:
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           # DEFAULT_BRANCH: main
           DEFAULT_BRANCH: ${{ github.head_ref }}
           VALIDATE_JAVASCRIPT_ES: true
