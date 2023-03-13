@@ -33,6 +33,9 @@ MD036: false                  # Emphasis used instead of a heading
 MD009: false
 MD041: false 
 
+MD009: false
+MD041: false
+
 #################
 # Rules by tags #
 #################
