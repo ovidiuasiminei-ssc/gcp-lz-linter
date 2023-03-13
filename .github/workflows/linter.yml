@@ -30,7 +30,8 @@ jobs:
           VALIDATE_PYTHON_BLACK: true
           VALIDATE_YAML: true
           VALIDATE_BASH: true
-          FILTER_REGEX_EXCLUDE: .*test/.*
+          VALIDATE_MARKDOWN: true 
+          #FILTER_REGEX_EXCLUDE: .*test/.*
           SUPER_LINTER_EXCLUDE: "**/*.sh, **/*.txt"
-          DISABLE_ERRORS: true
+          #DISABLE_ERRORS: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
