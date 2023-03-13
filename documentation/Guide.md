@@ -2,10 +2,10 @@
 
 ## Links
 
-# Policy controller 
+- Policy controller 
 1. [https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller)
 
-# Config connector
+- Config connector
 2. [https://cloud.google.com/config-connector/docs/reference/overview](https://cloud.google.com/config-connector/docs/reference/overview)
 
 # Config sync 
