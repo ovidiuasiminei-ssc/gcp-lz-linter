@@ -11,7 +11,7 @@
 - Config sync 
     - [https://cloud.google.com/anthos-config-management/docs/config-sync-overview](https://cloud.google.com/anthos-config-management/docs/config-sync-overview)
 
-    - Managing Kubernetes with Config Sync - video
+    - Managing Kubernetes with Config Sync - video<br>
       [https://youtu.be/_MrHbQKbPDY](https://youtu.be/_MrHbQKbPDY)
 
 - Firewall Rules Creation 
