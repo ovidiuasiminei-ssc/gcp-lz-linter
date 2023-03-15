@@ -3,7 +3,7 @@
 ## Links
 
 - Policy controller 
-    -[https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller)
+    - [https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller)
 
 - Config connector
     - [https://cloud.google.com/config-connector/docs/reference/overview](https://cloud.google.com/config-connector/docs/reference/overview)
