@@ -159,9 +159,11 @@ kpt [functions catalog](https://catalog.kpt.dev/?id=curated-functions-catalog)
 
 ### Policy controller
 
+#### Policy controller [overview](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller)
+
 Policy Controller enables the enforcement of fully programmable policies for your clusters. These policies act as "guardrails" and prevent any changes to the configuration of the Kubernetes API from violating security, operational, or compliance controls.
 You can set policies to actively block non-compliant API requests, or simply to audit the configuration of your clusters and report violations. Policy Controller is based on the open source Open Policy Agent Gatekeeper project and comes with a full library of pre-built policies for common security and compliance controls.
 In addition to actively controlling your Kubernetes environment, you can optionally use Policy Controller as a way to analyze configuration for compliance before deployment. This helps provide valuable feedback during the process of configuration changes and ensures any non-compliant changes are caught early before they might be rejected during application.
 
-[https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints)
+#[https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints)
 [https://open-policy-agent.github.io/gatekeeper/website/docs/operations/](https://open-policy-agent.github.io/gatekeeper/website/docs/operations/)
