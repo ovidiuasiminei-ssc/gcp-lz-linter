@@ -1,3 +1,7 @@
+
+
+
+
 # Google Cloud Developer Resources 
 
 [The ultimate infographic on GCP products for Developers](https://googlecloudcheatsheet.withgoogle.com/)  
@@ -167,3 +171,18 @@ In addition to actively controlling your Kubernetes environment, you can optiona
 
 #[https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints)
 [https://open-policy-agent.github.io/gatekeeper/website/docs/operations/](https://open-policy-agent.github.io/gatekeeper/website/docs/operations/)
+
+### Firewall Rules Creation 
+
+Hierarchical firewall policies  |  VPC  |  Google Cloud
+https://cloud.google.com/vpc/docs/firewalls
+
+
+### IAP access into a VM 
+
+IAP Desktop is a Windows application that lets you manage multiple Remote Desktop connections to Windows VM instances. IAP Desktop connects to VM instances by using Identity-Aware Proxy TCP forwarding and does not require VM instances to have a public IP address.
+Before you connect by using IAP Desktop, make sure that the following prerequisites are met:
+•	You've configured your VPC to allow IAP traffic to your VM instance.
+•	You've downloaded and installed IAP Desktop on your local computer.
+
+
