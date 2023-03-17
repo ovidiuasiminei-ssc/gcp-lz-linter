@@ -185,4 +185,18 @@ Before you connect by using IAP Desktop, make sure that the following prerequisi
 - You've configured your VPC to allow IAP traffic to your VM instance.
 - You've downloaded and installed IAP Desktop on your local computer.
 
+[https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app](https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app)
 
+### Cloud Load Balancing [overview](https://cloud.google.com/load-balancing/docs/load-balancing-overview) 
+
+A load balancer distributes user traffic across multiple instances of your applications. By spreading the load, load balancing reduces the risk that your applications experience performance issues.
+Cloud Load Balancing is a fully distributed, software-defined managed service. It isn't hardware-based, so you don't need to manage a physical load-balancing infrastructure.
+
+Google Cloud offers the following load-balancing features:
+- Single anycast IP address
+- Software-defined load balancing
+- Seamless autoscaling
+- Layer 4 and Layer 7 load balancing
+- External and internal load balancing
+- Global and regional load balancing
+- Advanced feature support
