@@ -185,7 +185,7 @@ Before you connect by using IAP Desktop, make sure that the following prerequisi
 - You've configured your VPC to allow IAP traffic to your VM instance.
 - You've downloaded and installed IAP Desktop on your local computer.
 
-#### IAP TCP forwarding [overview](https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app](https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app)
+#### IAP TCP forwarding [overview](https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app)
 
 IAP's TCP forwarding feature lets you control who can access administrative services like SSH and RDP on your backends from the public internet. The TCP forwarding feature prevents these services from being openly exposed to the internet. Instead, requests to your services must pass authentication and authorization checks before they get to their target resource.
 
