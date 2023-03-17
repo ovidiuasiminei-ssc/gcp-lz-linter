@@ -1,7 +1,3 @@
-
-
-
-
 # Google Cloud Developer Resources 
 
 [The ultimate infographic on GCP products for Developers](https://googlecloudcheatsheet.withgoogle.com/)  
@@ -160,6 +156,10 @@ kpt [functions catalog](https://catalog.kpt.dev/?id=curated-functions-catalog)
 
 **Important:**  Please note that kpt is available through the gcloud components, however you may wish to use a specific version, or newer version than that is provided by the gcloud SDK.
 
+### Set up Config Controller [overview](https://cloud.google.com/anthos-config-management/docs/concepts/config-controller-overview)
+
+Config Controller provides a managed control plane, based on Kubernetes. In addition, Config Controller instances come pre-installed with Policy Controller, Config Sync, and Config Connector. By using these components, you can leverage the tools and workflows of Kubernetes to manage Google Cloud resources and achieve consistency by using a GitOps workflow. 
+To learn more, see the Config Controller overview.
 
 ### Policy controller
 
@@ -174,9 +174,8 @@ In addition to actively controlling your Kubernetes environment, you can optiona
 ### Firewall Rules Creation 
 
 #### VPC firewall rules [overview](https://cloud.google.com/vpc/docs/firewalls)
-Virtual Private Cloud (VPC) firewall rules apply to a given project and network. If you want to apply firewall rules to multiple VPC networks in an organization, see Firewall policies
-
-Hierarchical firewall policies  |  VPC  |  Google Cloud
+Virtual Private Cloud (VPC) firewall rules apply to a given project and network. If you want to apply firewall rules to multiple VPC networks in an organization.
+VPC firewall rules let you allow or deny connections to or from virtual machine (VM) instances in your VPC network. Enabled VPC firewall rules are always enforced, protecting your instances regardless of their configuration and operating system, even if they have not started up.
 
 ### IAP access into a VM 
 
