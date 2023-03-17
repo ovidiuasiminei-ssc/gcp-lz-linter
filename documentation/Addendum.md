@@ -169,14 +169,14 @@ Policy Controller enables the enforcement of fully programmable policies for you
 You can set policies to actively block non-compliant API requests, or simply to audit the configuration of your clusters and report violations. Policy Controller is based on the open source Open Policy Agent Gatekeeper project and comes with a full library of pre-built policies for common security and compliance controls.
 In addition to actively controlling your Kubernetes environment, you can optionally use Policy Controller as a way to analyze configuration for compliance before deployment. This helps provide valuable feedback during the process of configuration changes and ensures any non-compliant changes are caught early before they might be rejected during application.
 
-#[https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints](https://cloud.google.com/anthos-config-management/docs/concepts/policy-controller#constraints)
-[https://open-policy-agent.github.io/gatekeeper/website/docs/operations/](https://open-policy-agent.github.io/gatekeeper/website/docs/operations/)
+[OPA ](https://open-policy-agent.github.io/gatekeeper/website/docs/operations/)
 
 ### Firewall Rules Creation 
 
-Hierarchical firewall policies  |  VPC  |  Google Cloud
-https://cloud.google.com/vpc/docs/firewalls
+#### VPC firewall rules [overview](https://cloud.google.com/vpc/docs/firewalls)
+Virtual Private Cloud (VPC) firewall rules apply to a given project and network. If you want to apply firewall rules to multiple VPC networks in an organization, see Firewall policies
 
+Hierarchical firewall policies  |  VPC  |  Google Cloud
 
 ### IAP access into a VM 
 
