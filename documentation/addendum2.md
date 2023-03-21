@@ -1,3 +1,4 @@
+# Google Cloud Resources Addendum 
 
 ### Table of Contents
 
@@ -31,23 +32,33 @@
     - [Config Sync overview](#config-sync-overview)
     - [Tools and Utilities](#tools-and-utilities)
   - [kpt](#kpt)
-
+  - [Set up Config Controller](#set-up-config-controller)
+    - [Config Controller overview](#config-controller-overview)
+  - [Firewall Rules Creation](#firewall-rules-creation)
+    - [VPC firewall rules overview](vpc-firewall-rules-overview)
+  - [IAP access into a VM ](#iap-access-into-a-vm)
+    - [IAP TCP forwarding overview](#iap-tcp-forwarding-overview)
+  - [Cloud Load Balancing](#cloud-load-balancing)
+    - [Cloud Load Balancing overview](#cloud-load-balancing-overview)
+    
 --------------------------------------
 
-# Google Cloud Developer Resources 
+### Fun Links
 
-[The ultimate infographic on GCP products for Developers](https://googlecloudcheatsheet.withgoogle.com/)  
+Enjoy!
 
-Check you regions latency using [GPCping](https://gcping.com/)
+The ultimate [infographic on GCP products](https://googlecloudcheatsheet.withgoogle.com/) for Developers 
+
+Check your regions latency using [GPCping](https://gcping.com/)
 
 
 ### DNS
 
-High level overview of some of the Google Cloud resource types to accelerate the design and deployment of your *workload*  
+#### [DNS Overview](https://cloud.google.com/dns/docs/dns-overview)
+
+High level overview of some of the Google Cloud resource types to accelerate the design and deployment of your *workload*.  
 
 #### General DNS knowledge
-
-#### [DNS overview](https://cloud.google.com/dns/docs/dns-overview)
 
 - DNS server types *(Authoritative, Recursive)*
 - Zones *(Public, Private, Delegated, Split brain/horizon)*
@@ -63,16 +74,15 @@ High level overview of some of the Google Cloud resource types to accelerate the
 
 [Cloud Domains Overview](https://cloud.google.com/domains/docs/overview)  
 
-
 #### DNS Zones
 
 #### Internal DNS
 
-Internal DNS names are names that Google Cloud creates automatically. Available in a single VPC by default, resolved by the metadata server (169.254.169.254). Google Cloud automatically creates, updates, and removes these DNS records. Please see [Internal DNS zone documentation](https://cloud.google.com/compute/docs/internal-dns)
+Internal DNS names are names that Google Cloud creates automatically. Available in a single VPC by default, resolved by the metadata server (169.254.169.254). Google Cloud automatically creates, updates, and removes these DNS records. Please see [Internal DNS zone documentation](https://cloud.google.com/compute/docs/internal-dns).
 
 #### Private Zones
  
-Managed custom domain names for virtual machines and other GCP resources without exposing the DNS data to the public internet. Please see [Private Zone Documentation]()
+Managed custom domain names for virtual machines and other GCP resources without exposing the DNS data to the public internet. Please see [Private Zone Documentation](https://cloud.google.com/dns/docs/zones#create-private-zone).
 
 Unless you have specified an alternative name server in an outbound server policy, Google Cloud first attempts to find a record in a private zone (or forwarding zone or peering zone) authorized for your VPC network before it looks for the record in a public zone.
 
@@ -85,7 +95,6 @@ Unless you have specified an alternative name server in an outbound server polic
 #### Public, External DNS Zone
 
 Create DNS records in public zones to publish your service on the internet. Please see [Public Zone Documentation](https://cloud.google.com/dns/docs/dns-overview#public_zone). 
-
 
 ##### Anycast Resolution
 >> Google DNS has some fame associated to it for it's resiliency and global availability properties, with publicly available resolvers such as:  
@@ -101,18 +110,16 @@ Cross project binding is used to manage private DNS zones that service another p
 [Cross project binding Overview](https://cloud.google.com/dns/docs/zones/zones-overview#cross-project_binding)  
 [Creating a Zone with cross project binding](https://cloud.google.com/dns/docs/zones/cross-project-binding)
 
-
 ### Cloud Armor
 
 #### [Cloud Armor Overview ](https://cloud.google.com/armor/docs/cloud-armor-overview)
 
 Google Cloud Armor is a DDoS and application defense service the helps protect your *service*. Cloud Armor is tightly coupled with the Global HTTPS(S) Cloud Load Balancer. Cloud Armor protects your network services, typically behind a load balancer from DOS and other web based attacks. Enforcement is managed at the edge Point of Presence (POP), as close to the source traffic as possible. Traffic can be filtered and defended against at layer 7 of the OSI model. 
 
-
 ##### Cloud Armour Encompasses:
 
 * Policies/Rules
-* Whitelist / Blacklist IP's
+* Allowlist / Denylist IP's
 
 ##### Cloud Armor Policies & Ordering:
 
@@ -138,17 +145,16 @@ Google Cloud Armor is a DDoS and application defense service the helps protect y
 
 [Use cases](https://cloud.google.com/armor/docs/common-use-cases)  
 [Security Policies](https://cloud.google.com/armor/docs/configure-security-policies#https-load-balancer)  
-[Rules Language Reference](https://cloud.google.com/armor/docs/rules-language-reference)
+[Rules Language Reference](https://cloud.google.com/armor/docs/rules-language-reference)  
 [Cloud Armor Standard VS Managed Protection Plus](https://cloud.google.com/armor/docs/managed-protection-overview#standard_versus_plus)  
 
-### Vpc Service Controls  
+### VPC Service Controls  
 
 #### [VPC Service Controls Overview](https://cloud.google.com/vpc-service-controls/docs/overview)
 
 #### *Important* [Terminology](https://cloud.google.com/vpc-service-controls/docs/overview#terminology) 
 
 A service perimeter creates a security boundary around Google Cloud resources. You can configure a perimeter to control communications from virtual machines (VMs) to a Google Cloud service (API), and between Google Cloud services. A perimeter allows free communication within the perimeter but, by default, blocks communication to Google Cloud services across the perimeter. The perimeter does not block access to any third-party API or services in the internet. [Reference doc.](https://cloud.google.com/vpc-service-controls/docs/overview#isolate)  
-
 
 #### Quick Start
 
@@ -166,7 +172,7 @@ VPC service controls allow blocking or restriction of api services at the Projec
 
 ### Config Sync
 
-#### Config Sync [overview](https://cloud.google.com/anthos-config-management/docs/config-sync-overview)  
+#### [Config Sync Overview](https://cloud.google.com/anthos-config-management/docs/config-sync-overview)  
 
 Config Sync is a GitOps service offered as a part of Anthos. Config Sync is built on an open source core and lets cluster operators and platform administrators deploy configurations from a source of truth. The service has the flexibility to support one or many clusters and any number of repositories per cluster or namespace. The clusters can be in a hybrid or multi-cloud environment.  
 
@@ -179,12 +185,9 @@ Getting started with [Config Sync](https://cloud.google.com/anthos-config-manage
 [Nomos](https://cloud.google.com/anthos-config-management/docs/how-to/nomos-command)  
 [Kubectl](https://cloud.google.com/anthos-config-management/docs/how-to/configure-config-sync-kubectl)  
 
-
 ### kpt
 
-[KPT Readme.md](https://github.com/GoogleContainerTools/kpt/#readme) is an open source project used to hydrate yaml, get packages, apply functions, search and replace in yaml manifests. kpt is a package centric toolchain that enables a WYSIWYG configuration authoring and authoring enabling tool
-
-[WYSIWYG Config as Data Demo Video](https://youtu.be/L_x7z4CXHDw)
+[KPT Readme.md](https://github.com/GoogleContainerTools/kpt/#readme) is an open source project used to hydrate yaml, get packages, apply functions, search and replace in yaml manifests. kpt is a package centric toolchain that enables a WYSIWYG configuration authoring and authoring enabling tool.
 
 kpt [installation](https://kpt.dev/installation/)
 
@@ -194,7 +197,7 @@ kpt [functions catalog](https://catalog.kpt.dev/?id=curated-functions-catalog)
 
 ### Set up Config Controller 
 
-#### Config Controller [overview](https://cloud.google.com/anthos-config-management/docs/concepts/config-controller-overview)
+#### [Config Controller overview](https://cloud.google.com/anthos-config-management/docs/concepts/config-controller-overview)
 
 Config Controller provides a managed control plane, based on Kubernetes. In addition, Config Controller instances come pre-installed with Policy Controller, Config Sync, and Config Connector. By using these components, you can leverage the tools and workflows of Kubernetes to manage Google Cloud resources and achieve consistency by using a GitOps workflow. 
 To learn more, see the Config Controller overview.
@@ -209,7 +212,7 @@ In addition to actively controlling your Kubernetes environment, you can optiona
 
 ### Firewall Rules Creation 
 
-#### VPC firewall rules [overview](https://cloud.google.com/vpc/docs/firewalls)
+#### [VPC firewall rules overview](https://cloud.google.com/vpc/docs/firewalls)
 Virtual Private Cloud (VPC) firewall rules apply to a given project and network. If you want to apply firewall rules to multiple VPC networks in an organization.
 VPC firewall rules let you allow or deny connections to or from virtual machine (VM) instances in your VPC network. Enabled VPC firewall rules are always enforced, protecting your instances regardless of their configuration and operating system, even if they have not started up.
 
@@ -220,13 +223,13 @@ Before you connect by using IAP Desktop, make sure that the following prerequisi
 - You've configured your VPC to allow IAP traffic to your VM instance.
 - You've downloaded and installed IAP Desktop on your local computer.
 
-#### IAP TCP forwarding [overview](https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app)
+#### [IAP TCP forwarding overview](https://cloud.google.com/compute/docs/instances/connecting-to-windows#remote-desktop-connection-app)
 
 IAP's TCP forwarding feature lets you control who can access administrative services like SSH and RDP on your backends from the public internet. The TCP forwarding feature prevents these services from being openly exposed to the internet. Instead, requests to your services must pass authentication and authorization checks before they get to their target resource.
 
 ### Cloud Load Balancing 
 
-#### Cloud Load Balancing [overview](https://cloud.google.com/load-balancing/docs/load-balancing-overview)
+#### [Cloud Load Balancing overview](https://cloud.google.com/load-balancing/docs/load-balancing-overview)
 
 A load balancer distributes user traffic across multiple instances of your applications. By spreading the load, load balancing reduces the risk that your applications experience performance issues.
 Cloud Load Balancing is a fully distributed, software-defined managed service. It isn't hardware-based, so you don't need to manage a physical load-balancing infrastructure.
