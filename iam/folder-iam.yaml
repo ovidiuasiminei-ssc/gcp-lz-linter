@@ -1,0 +1,82 @@
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#########
+# Authoritative Folder IAM Policy
+# Warning: IAMPolicy represents the full desired state for the associated resource's IAM policy.
+# It replaces any existing IAM policy already attached, and is therefore authoritative.
+#########
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPolicy
+metadata:
+  name: lz-folder-iam-permissions
+  namespace: config-control # kpt-set: ${management-namespace}
+spec:
+  resourceRef:
+    apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
+    kind: Folder
+    external: "123456789012" # kpt-set: ${lz-folder-id}
+  bindings:
+    #########
+    # Hierarchy Namespace Folder IAM Permissions
+    #########
+    # Grant GCP role Folder Admin to GCP SA
+    # AC-3(7) - RBAC role to account with required permissions
+    - members:
+        - serviceAccount:hierarchy-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:hierarchy-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/resourcemanager.folderAdmin
+    #########
+    # Networking Namespace Folder IAM Permissions
+    #########
+    # Grant GCP role Network Admin to GCP SA
+    # AC-3(7) - RBAC role to account with required permissions for networking administration
+    - members:
+        - serviceAccount:networking-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:networking-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/compute.networkAdmin
+    # Grant GCP role Security Admin to GCP SA
+    - members:
+        - serviceAccount:networking-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:networking-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/compute.securityAdmin
+    # Grant GCP role DNS Admin to GCP SA
+    - members:
+        - serviceAccount:networking-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:networking-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/dns.admin
+    # Grant GCP role ACM Admin to GCP SA
+    - members:
+        - serviceAccount:networking-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:networking-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/accesscontextmanager.policyAdmin
+    #########
+    # Project Namespace Folder IAM Permissions
+    #########
+    # Grant GCP role Project IAM Admin to GCP SA
+    # AC-3(7) - RBAC role to account with required permissions for administration of projects
+    - members:
+        - serviceAccount:projects-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:projects-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/resourcemanager.projectIamAdmin
+    # Grant GCP role Project Creator to GCP SA
+    - members:
+        - serviceAccount:projects-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:projects-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/resourcemanager.projectCreator
+    # Grant GCP role Project Mover to GCP SA
+    - members:
+        - serviceAccount:projects-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:projects-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/resourcemanager.projectMover
+    # Grant GCP role Project Deleter to GCP SA
+    - members:
+        - serviceAccount:projects-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:projects-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/resourcemanager.projectDeleter
+    # Grant GCP role Service Usage Admin to GCP SA
+    - members:
+        - serviceAccount:projects-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:projects-sa@${management-project-id}.iam.gserviceaccount.com
+      role: roles/serviceusage.serviceUsageAdmin
+      

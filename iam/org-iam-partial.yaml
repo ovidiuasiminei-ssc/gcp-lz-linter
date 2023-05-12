@@ -1,0 +1,56 @@
+# Copyright 2021 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#########
+# Organization IAMPartialPolicy
+#########
+apiVersion: iam.cnrm.cloud.google.com/v1beta1
+kind: IAMPartialPolicy
+metadata:
+  name: organization-iam-permissions
+  namespace: config-control # kpt-set: ${management-namespace}
+spec:
+  resourceRef:
+    kind: Organization
+    external: "123456789012" # kpt-set: ${org-id}
+  bindings:
+    - role: roles/resourcemanager.organizationAdmin
+      members:
+        - member: serviceAccount:service-management-project-number@gcp-sa-yakima.iam.gserviceaccount.com # kpt-set: serviceAccount:service-${management-project-number}@gcp-sa-yakima.iam.gserviceaccount.com
+    #########
+    # Namespace IAM Permissions
+    #########
+    # Grant GCP role Billing User to GCP SA
+    # This role cannot be defined at a folder level. It can only be set at the org level.
+    - role: roles/billing.user
+      members:
+        - member: serviceAccount:projects-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:projects-sa@${management-project-id}.iam.gserviceaccount.com
+    # Grant GCP role Shared VPC Admin to GCP SA
+    # needs to be set at the org level because of org policy "constraints/compute.restrictXpnProjectLienRemoval"
+    - role: roles/compute.xpnAdmin
+      members:
+        - member: serviceAccount:networking-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:networking-sa@${management-project-id}.iam.gserviceaccount.com
+    # Grant GCP role Organization Policy Administrator to GCP SA
+    # AC-3(7) - RBAC role to account with required permissions for policy administration
+    - role: roles/orgpolicy.policyAdmin 
+      members:
+        - member: serviceAccount:policies-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:policies-sa@${management-project-id}.iam.gserviceaccount.com
+    # Grant GCP role Logging Admin to GCP SA
+    # AC-3(7) - RBAC role to account with required permissions for logging administration
+    - role: roles/logging.admin
+      members:
+        - member: serviceAccount:logging-sa@management-project-id.iam.gserviceaccount.com # kpt-set: serviceAccount:logging-sa@${management-project-id}.iam.gserviceaccount.com
+    # Grant GCP role Organization Role Admin to GCP config-control-sa a.k.a yakima
+    - role: roles/iam.organizationRoleAdmin
+      members:
+        - member: serviceAccount:service-management-project-number@gcp-sa-yakima.iam.gserviceaccount.com # kpt-set: serviceAccount:service-${management-project-number}@gcp-sa-yakima.iam.gserviceaccount.com
